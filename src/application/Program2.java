@@ -2,6 +2,8 @@ package application;
 
 import java.util.List;
 
+import com.mysql.cj.protocol.x.SyncFlushDeflaterOutputStream;
+
 import model.dao.DaoFactory;
 import model.dao.DepartmentDao;
 import model.entities.Department;
@@ -20,6 +22,13 @@ public class Program2 {
 		for (Department department : list) {
 			System.out.println(department);
 		}
+		
+		System.out.println("\n==== TEST 3: insert ======");
+		Department newDepartment = new Department(null, "Tools");
+		departmentDao.insert(newDepartment);
+		System.out.print("Inserted! New id: " + newDepartment.getId());
+		System.out.println();
+		
+		
 	}
-
 }
